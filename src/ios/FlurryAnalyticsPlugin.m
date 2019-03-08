@@ -17,13 +17,12 @@
                 [Flurry setAppVersion:options[@"version"]];
             }
 
-            if ([options valueForKey:@"enablePulse"] != nil) {
-                [Flurry setPulseEnabled:options[@"enablePulse"]];
+            if ([options valueForKey:@"continueSessionMillis"] != nil) {
+                [Flurry setSessionContinueSeconds:[options[@"continueSessionMillis"] integerValue]];
             }
 
-            if ([options valueForKey:@"continueSessionMillis"] != nil) {
-
-                [Flurry setSessionContinueSeconds:[options[@"continueSessionMillis"] integerValue]];
+            if ([options valueForKey:@"setReportLocation"] != nil) {
+                [Flurry trackPreciseLocation:[options[@"setReportLocation"] boolValue]];
             }
 
             if ([options valueForKey:@"logLevel"] != nil) {
@@ -67,7 +66,6 @@
             }
 
             if ([options valueForKey:@"age"] != nil) {
-
                 [Flurry setAge:[options[@"age"] intValue]];
             }
 
@@ -75,8 +73,8 @@
                 [Flurry setEventLoggingEnabled:[options[@"enableEventLogging"] boolValue]];
             }
 
-            if ([options valueForKey:@"reportSessionsOnPause"] != nil) {
-                [Flurry setSessionReportsOnCloseEnabled:[options[@"reportSessionsOnPause"] boolValue]];
+            if ([options valueForKey:@"reportSessionsOnClose"] != nil) {
+                [Flurry setSessionReportsOnCloseEnabled:[options[@"reportSessionsOnClose"] boolValue]];
             }
 
             if ([options valueForKey:@"reportSessionsOnPause"] != nil) {
